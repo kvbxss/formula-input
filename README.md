@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Formula Input App
 
-Currently, two official plugins are available:
+A React-based formula input application where users can type formulas, select autocomplete suggestions, and calculate results. It uses Zustand for state management and React Query for fetching suggestions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Formula Input**: Users can type a formula with variables and numbers.
+- **Autocomplete**: Autocomplete suggestions based on user input and existing tags in the formula.
+- **Formula Calculation**: After typing the formula, users can click on "Calculate" to get the result of the formula.
+- **Tag Management**: Users can add and remove tags (variables) to the formula dynamically.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Frontend UI.
+- **Zustand**: State management.
+- **React Query**: Fetch data for autocomplete suggestions.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+To get started with the app, follow the steps below:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/yourusername/formula-input-app.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd formula-input-app
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+
+## Usage
+
+### Formula Input
+
+- **Typing a Formula**: Click on the formula input field and start typing. You can include variables and numbers.
+- **Autocomplete**: While typing, suggestions will appear based on the existing tags and input text. Click on a suggestion to insert it into the formula.
+- **Calculate Formula**: After entering a formula, click the "Calculate" button to evaluate the result. The result will appear below the formula input.
+- **Clear Formula**: Click the "Clear Formula" button to clear the input field and reset the formula.
+
+## Components
+
+- **FormulaInput**: The main input component for typing and calculating formulas.
+- **TagContentType**: A type that defines the structure of tags/variables in the formula.
+- **useFormulaStore**: Zustand store for managing the state related to the formula input, including the formula, tags, and autocomplete suggestions.
+
+## Example
+
+Here's an example of how the application might look when used:
+
+```txt
+Formula Input: `x + y * 2`
+
+Autocomplete Suggestions: 
+- Variable: `x` -> Value: 10
+- Variable: `y` -> Value: 5
+
+Result: `20`
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Formula Calculation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- The formula input supports dynamic variables like `x`, `y`, etc. The result is calculated based on the entered formula and the values of the tags.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Contributing
+
+If you would like to contribute to the project, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Commit your changes with a meaningful message.
+5. Push to your fork.
+6. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
