@@ -21,14 +21,10 @@ interface FormulaState {
   inputText: string;
   formula: string;
   showAutocomplete: boolean;
-  selectedTagId: string | null;
   addTag: (tag: TagContentType) => void;
-  removeTag: (id: string) => void;
-  removeLastTag: () => void;
   setInputText: (text: string) => void;
   updateFormula: (formula: string) => void;
   toggleAutocomplete: (show: boolean) => void;
-  setSelectedTagId: (id: string | null) => void;
   calculateFormula: () => number | null;
 }
 
@@ -46,18 +42,6 @@ export const useFormulaStore = create<FormulaState>((set, get) => ({
     }));
   },
 
-  removeTag: (id) => {
-    set((state) => ({
-      content: state.content.filter((item) => item.id !== id),
-    }));
-  },
-
-  removeLastTag: () => {
-    set((state) => ({
-      content: state.content.slice(0, -1),
-    }));
-  },
-
   setInputText: (text) => {
     set({ inputText: text });
   },
@@ -68,10 +52,6 @@ export const useFormulaStore = create<FormulaState>((set, get) => ({
 
   toggleAutocomplete: (show) => {
     set({ showAutocomplete: show });
-  },
-
-  setSelectedTagId: (id) => {
-    set({ selectedTagId: id });
   },
 
   calculateFormula: () => {

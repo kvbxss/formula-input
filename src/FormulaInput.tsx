@@ -1,12 +1,11 @@
 import type React from "react";
 import { useRef, useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useFormulaStore, type TagContentType } from "./store/formulaStore";
+import { useFormulaStore } from "./store/formulaStore";
 import { fetchSuggestions } from "./api/suggestions";
 
 const FormulaInput: React.FC = () => {
   const {
-    formula,
     showAutocomplete,
     inputText,
     setInputText,
